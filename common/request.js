@@ -5,26 +5,26 @@ var Request = {
      * @param url 请求路径
      * @param data 请求参数
      */
-  params: function (type, url, data, userInfo) {
+  params: function (type, url, data) {
     return {
-      type : type,
-      url : url,
-      data : data,
-      userInfo : userInfo
+      type: type,
+      url: url,
+      data: data
     };
   },
 
   /**
    * 自定义请求
    */
-  myWxRequet : function(params) {
-    console.log("123");
-    console.log(getApp().globalData.userInfo);
-    return new Promise(function(resolve, reject) {
+  myWxRequet: function (params) {
+    let token = wx.getStorageSync("token");
+    return new Promise(function (resolve, reject) {
       wx.request({
         url: params.url,
         data: params.data,
-        header: {},
+        header: {
+          token: token
+        },
         method: params.type,
         dataType: 'json',
         responseType: 'text',

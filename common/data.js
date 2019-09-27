@@ -6,11 +6,13 @@ var Data = {
     // POST
     POST: "POST",
   },
-  
+
   // 请求地址
   requestUrl: {
     baseUrl: "http://127.0.0.1:30100",
-    testUrl: "/test/hello.json"
+    testUrl: "/test/hello.json",
+
+    loginUrl: "/user/doLogin.json"
   }
 }
 
